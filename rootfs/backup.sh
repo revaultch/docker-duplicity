@@ -17,10 +17,10 @@ BACKUP_EXCLUDE_PATTERN=${BACKUP_INCLUDE_PATTERN:-**}
 
 #DUP="duplicity --s3-use-new-style --s3-european-buckets "
 DUP="duplicity"
-if [[ "${URL}" =~ s3://.* ]]; then
+if [[ "${BACKUP_TARGET_URL}" =~ s3://.* ]]; then
     DUP="${DUP} --s3-use-new-style "
 fi
-if [[ "${URL}" =~ s3://.*-eu-.* ]]; then
+if [[ "${BACKUP_TARGET_URL}" =~ s3://.*-eu-.* ]]; then
     DUP="${DUP} --s3-european-buckets "
 fi
 if [[ "${BACKUP_GPG_KEY_ID}" != "" ]]; then
