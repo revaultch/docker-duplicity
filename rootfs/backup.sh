@@ -16,7 +16,7 @@ BACKUP_INCLUDE_PATTERN=${BACKUP_INCLUDE_PATTERN:-/}
 BACKUP_EXCLUDE_PATTERN=${BACKUP_EXCLUDE_PATTERN:-**}
 
 #DUP="duplicity --s3-use-new-style --s3-european-buckets "
-DUP="duplicity"
+DUP="duplicity -v 1 --allow-source-mismatch "
 if [[ "${BACKUP_TARGET_URL}" =~ s3://.* ]]; then
     DUP="${DUP} --s3-use-new-style "
 fi
