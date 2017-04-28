@@ -25,6 +25,9 @@ if [[ "${BACKUP_TARGET_URL}" =~ s3://.*-eu-.* ]]; then
 fi
 if [[ "${BACKUP_GPG_KEY_ID}" != "" ]]; then
     DUP="${DUP} --encrypt-key ${BACKUP_GPG_KEY_ID} "
+else
+    unset PASSPHRASE
+    DUP="${DUP} --no-encryption "
 fi
 
 backup() {
