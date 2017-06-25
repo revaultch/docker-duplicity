@@ -56,7 +56,7 @@ restore() {
     if [ "${TARGET_DIR}" == "" ]; then
         help
     fi
-    duplicity ${BACKUP_TARGET_URL} ${TARGET_DIR}
+    duplicity restore ${BACKUP_TARGET_URL} ${TARGET_DIR}
 }
 if [ "" == "$1" ]; then
     help
